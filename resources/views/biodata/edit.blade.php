@@ -23,13 +23,13 @@ Edit Biodata Peserta PKL
         <div class="pull-left">
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('biodata.index') }}"> Kembali</a>
+            <a class="btn btn-primary" href="{{route('biodata.index')}}"> Kembali</a>
         </div>
     </div>
 </div>
 <br>
 <div class="card card-primary">
-    <div class="card-header">
+    <div class="card-header bg-prymary text-white">
       <h3 class="card-title">Form Buat Peserta</h3>
     </div>
     <!-- /.card-header -->
@@ -41,60 +41,81 @@ Edit Biodata Peserta PKL
                   @csrf
                 <div class="form-group">
                     <label>Nama Peserta</label>
-                    <input type="text" name="nama_peserta" value="{{ $biodata->nama_peserta }}">
+                    <div >
+                    <input style="width:1000px" type="text" name="nama_peserta" value="{{ $biodata->nama_peserta }}">
                 </div>
+                </div>
+
                 <div class="form-group">
                     <label>Tempat Lahir</label>
-                    <input type="text" name="tempat_lahir" value=" {{ $biodata->tempat_lahir }}">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="text" name="tempat_lahir" value=" {{ $biodata->tempat_lahir }}">
+                </div></div>
                 <div class="form-group">
                     <label>Tanggal Lahir</label>
-                    <input type="date" name="tgl_lahir" value="{{ $biodata->tgl_lahir }}" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="date" name="tgl_lahir" value="{{ $biodata->tgl_lahir }}" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Alamat Lengkap</label>
-                    <input type="text" name="alamat" value="{{ $biodata->alamat }}" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="text" name="alamat" value="{{ $biodata->alamat }}" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Agama</label>
-                    <input type="text" name="agama" value="{{ $biodata->agama }}" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="text" name="agama" value="{{ $biodata->agama }}" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Jenis Kelamin</label>
-                    <select type="text" name="jenis_kelamin" value="{{ $biodata->jenis_kelamin }}">
+                <div class="radio">
+                    <select style="width:1000px" type="radio" name="jenis_kelamin" value="{{ $biodata->jenis_kelamin }}">
                         <option>-Pilih-</option>
-                        <option>Laki-Laki</option>
-                        <option>Perempuan</option>
+                        <option selected>Laki-Laki</option>
+                        <option selected>Perempuan</option>
                         </select>
+                </div>
                 </div>
                 <div class="form-group">
                     <label>No. Telp</label>
-                    <input type="text" name="no_tlp" value="{{ $biodata->no_tlp }}" id="">
-                </div>
+                <div>
+                    <input style="width:1000px" type="text" name="no_tlp" value="{{ $biodata->no_tlp }}" id="">
+                </div></div>
                 <div class="form-group">
-                    <label>Asal Pendidikan</label>
-                    <select type="text" name="id_lembagapend" value=" {{ $biodata->pendidikan->nama_lembaga }}">
+                    <label>Nama Pendidikan</label>
+                    <div>
+                    <input style="width:1000px" type="text" name="id_lembagapend" value="{{ $biodata->pendidikan->nama_lembaga }}" id="">
+                </div></div>
+                <div class="form-group">
+                    <label>Pendidikan</label>
+                    <div>
+                    <select style="width:1000px" type="text" name="id_lembagapend" value="{{ $biodata->pendidikan->jenis_lembaga }}">
                     <option>-Pilih-</option>
                     @foreach ($pendidikan as $data)
-                    <option value="{{$data->id_lembagapend}}">{{$data->nama_lembaga}}</option>
+                    <option selected value="{{$data->id_lembagapend}}">{{$data->jenis_lembaga}}</option>
                     </select>
-                </div>
+                </div></div>
                 <div class="form-group">
                     <label>Jurusan</label>
-                    <input type="text" name="jurusan" value="{{ $biodata->jurusan }}" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="text" name="jurusan" value="{{ $biodata->jurusan }}" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Awal Masuk PKL</label>
-                    <input type="text" name="awal_masuk" value="{{ $biodata->masapkl->awal_masuk }}" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="date" name="awal_masuk" value="{{ $biodata->masapkl->awal_masuk }}" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Akhir Masuk PKL</label>
-                    <input type="text" name="akhir_masuk" value="{{ $biodata->masapkl->akhir_masuk }}" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="date" name="akhir_masuk" value="{{ $biodata->masapkl->akhir_masuk }}" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Upload Foto Diri</label>
+                    <div>
                     <input type="file" name="foto_peserta" value="{{asset('uploads/foto/'.$biodata->foto_peserta)}}" id="">
-                </div>
+                <p class="text-dager">{{$errors->first('update')}}</p>
+                </div></div>
                     @endforeach
                 </select>
                 <div class="card-footer">

@@ -10,6 +10,7 @@ class Biodata extends Model
     protected $fillable = ['nama_peserta','agama','jenis_kelamin','no_tlpn','tempat_lahir','tgl_lahir', 'jurusan','foto_peserta','id_lemabagapend'];
     public $timestamps = false;
     protected $with= ['pendidikan','masapkl'];
+    protected $guarded = [];
 
     public function pendidikan()
     {
@@ -19,5 +20,6 @@ class Biodata extends Model
     {
         return $this->hasOne('App\Masapkl','id_peserta','id_peserta');
     }
+
     
 }

@@ -40,7 +40,10 @@ Biodata Peserta PKL
                 <div class=""></div>
                 @csrf
                 <div class="form-group">
-                    <img src="{{asset('uploads/foto/'.$biodata->foto_peserta)}}" style="max-width: 100%; height:100px">
+                    <img src="{{asset('uploads/foto/'.$biodata->foto_peserta)}}" class="img-thumbnail mx-auto d-block mb-3 rounded"
+                    width="300px">
+                    <div class="table-responsive pr-3">
+                        <table class="table">
                     </div>
                 <div class="form-group">
                     <label>Nama Peserta :</label>
@@ -71,8 +74,12 @@ Biodata Peserta PKL
                     {{ $biodata->no_tlp }}
                 </div>
                 <div class="form-group">
-                    <label>Asal Lembaga :</label>
+                    <label>Nama Pendidikan :</label>
                     {{ $biodata->pendidikan->nama_lembaga }}
+                </div>
+                <div class="form-group">
+                    <label>Pendidikan :</label>
+                    {{ $biodata->pendidikan->jenis_lembaga }}
                 </div>
                 <div class="form-group">
                     <label>Jurusan :</label>

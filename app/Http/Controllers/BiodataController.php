@@ -11,6 +11,15 @@ use Illuminate\Support\Facades\file;
 class BiodataController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -31,6 +40,7 @@ class BiodataController extends Controller
     {
         $lembagapendidikan=LembagaPendidikan::all();
         return view('biodata.create',compact('lembagapendidikan'));
+        return view('biodata.pendidikan',compact('lembagapendidikan'));
     }
 
     /**

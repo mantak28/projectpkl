@@ -23,7 +23,19 @@ Dashboard Peserta PKL
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">Tabel Biodata</h3>
+      <!-- SEARCH FORM -->
+      <form class="form-inline ml-3 float-sm-right">
+        <div class="input-group input-group-sm">
+          <input class="form-control form-control-navbar-" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-navbar" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
       </div>
+      
       <!-- /.card-header -->
       <div class="card-body">
         <table class="table table-bordered">
@@ -31,9 +43,9 @@ Dashboard Peserta PKL
             <tr>
               <th>No</th>
               <th>Nama Peserta</th>
-              <th>Asal Pendidikan</th>
+              <th>Nama Pendidikan</th>
               <th>Jenis Kelamin</th>
-              <th>Alamat Peserta</th>
+              <th>Alamat</th>
               <th>Waktu PKL</th>
               <th>Aksi</th>
             </tr>
@@ -50,11 +62,11 @@ Dashboard Peserta PKL
               <td>
                 <!-- view btn -->
                 
-              <a href="{{route('biodata.show',$data->id_peserta)}}" class="btn btn-primary btn-circle btn-sm view_data m-1" title="Lihat Detail">
+              <a href="{{url('biodata/'.$data->id_peserta)}}" class="btn btn-primary btn-circle btn-sm view_data m-1" title="Lihat Detail">
                 <i class="fas fa-eye"></i>
               </a>
               <!-- edit btn -->
-              <a href="{{route('biodata.edit',$data->id_peserta)}}" class="btn btn-success btn-circle btn-sm m-1 edit_data" title="Edit Data Pengguna"
+              <a href="{{url('biodata/'.$data->id_peserta.'/edit')}}" class="btn btn-success btn-circle btn-sm m-1 edit_data" title="Edit Data Pengguna"
                 name="edit" value="edit" id="edit">
                 <i class="fas fa-pen"></i>
             </a>

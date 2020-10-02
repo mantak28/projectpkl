@@ -20,7 +20,7 @@ Biodata Peserta PKL
 
 <div class="card card-primary">
     <div class="card-header">
-      <h3 class="card-title">Form Buat Peserta</h3>
+      <h3 class="card-title">Form Peserta</h3>
     </div>
       <!-- /.card-header -->
       <form role="form" enctype="multipart/form-data" action="{{route('biodata.store')}}" method="POST">
@@ -31,60 +31,77 @@ Biodata Peserta PKL
                 @csrf
                 <div class="form-group">
                     <label>Nama Peserta</label>
-                    <input type="text" name="nama_peserta">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="text" name="nama_peserta">
+                </div></div>
                 <div class="form-group">
                     <label>Tempat Lahir</label>
-                    <input type="text" name="tempat_lahir">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="text" name="tempat_lahir">
+                </div></div>
                 <div class="form-group">
                     <label>Tanggal Lahir</label>
-                    <input type="date" name="tgl_lahir" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="date" name="tgl_lahir" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Alamat Lengkap</label>
-                    <input type="text" name="alamat" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="text" name="alamat" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Agama</label>
-                    <input type="text" name="agama" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="text" name="agama" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Jenis Kelamin</label>
-                    <select type="text" name="jenis_kelamin">
+                    <div>
+                    <select style="width:1000px" type="text" name="jenis_kelamin">
                         <option>-Pilih-</option>
                         <option>Laki-Laki</option>
                         <option>Perempuan</option>
                         </select>
-                </div>
+                </div></div>
                 <div class="form-group">
                     <label>No. Telp</label>
-                    <input type="text" name="no_tlp" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="text" name="no_tlp" id="">
+                </div></div>
                 <div class="form-group">
-                    <label>Asal Pendidikan</label>
-                    <select type="text" name="id_lembagapend">
-                    <option>-Pilih-</option>
+                    <label>Nama Pendidikan</label>
+                    <div>
                     @foreach ($lembagapendidikan as $data)
-                    <option value="{{$data->id_lembagapend}}">{{$data->nama_lembaga}}</option>
+                    <input style="width:1000px" type="text" name="id_lembagapend" value="{{ $data->nama_lembaga }}">
+                </div></div>
+                <div class="form-group">
+                    <label>Pendidikan</label>
+                    <div>
+                    <select style="width:1000px" type="text" name="id_lembagapend">
+                    <option>-Pilih-</option>
+                    <option value="{{$data->id_lembagapend}}">{{$data->jenis_lembaga}}</option>
                     </select>
-                </div>
+                </div></div>
                 <div class="form-group">
                     <label>Jurusan</label>
-                    <input type="text" name="jurusan" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="text" name="jurusan" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Awal Masuk PKL</label>
-                    <input type="text" name="awal_masuk" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="date" name="awal_masuk" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Akhir Masuk PKL</label>
-                    <input type="text" name="akhir_masuk" id="">
-                </div>
+                    <div>
+                    <input style="width:1000px" type="date" name="akhir_masuk" id="">
+                </div></div>
                 <div class="form-group">
                     <label>Upload Foto Diri</label>
+                    <div>
                     <input type="file" name="foto_peserta" id="">
-                </div>
+                </div></div>
                     @endforeach
                 </select>
                 <div class="card-footer">
