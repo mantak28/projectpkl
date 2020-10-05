@@ -31,12 +31,11 @@ Biodata Peserta PKL
 <div class="card card-primary">
     <div class="card-header">
       <h3 class="card-title">Form Peserta</h3>
+      
     </div>
       <!-- /.card-header -->
       <form role="form" enctype="multipart/form-data">
-      <div class="card-body">
-        <table class="table table-bordered">
-          <thead>                  
+      <div class="card-body">              
                 <div class=""></div>
                 @csrf
                 <div class="form-group">
@@ -45,55 +44,55 @@ Biodata Peserta PKL
                     <div class="table-responsive pr-3">
                         <table class="table">
                     </div>
-                <div class="form-group">
-                    <label>Nama Peserta :</label>
-                    {{ $biodata->nama_peserta }}
-                </div>
-                <div class="form-group">
-                    <label>Tempat Lahir :</label>
-                    {{ $biodata->tempat_lahir }}
-                </div>
-                <div class="form-group">
-                    <label>Tanggal Lahir</label>
-                    {{ $biodata->tgl_lahir }}
-                </div>
-                <div class="form-group">
-                    <label>Alamat Lengkap :</label>
-                    {{ $biodata->alamat }}
-                </div>
-                <div class="form-group">
-                    <label>Agama :</label>
-                    {{ $biodata->agama }}
-                </div>
-                <div class="form-group">
-                    <label>Jenis Kelamin :</label>
-                    {{ $biodata->jenis_kelamin }}
-                </div>
-                <div class="form-group">
-                    <label>No. Telp :</label>
-                    {{ $biodata->no_tlp }}
-                </div>
-                <div class="form-group">
-                    <label>Nama Pendidikan :</label>
-                    {{ $biodata->pendidikan->nama_lembaga }}
-                </div>
-                <div class="form-group">
-                    <label>Pendidikan :</label>
-                    {{ $biodata->pendidikan->jenis_lembaga }}
-                </div>
-                <div class="form-group">
-                    <label>Jurusan :</label>
-                    {{ $biodata->jurusan }}
-                </div>
-                <div class="form-group">
-                    <label>Awal Masuk PKL :</label>
-                    {{ $biodata->masapkl->awal_masuk }}
-                </div>
-                <div class="form-group">
-                    <label>Akhir Masuk PKL:</label>
-                    {{ $biodata->masapkl->akhir_masuk }}
-                </div>
-          </thead>
+                    <tbody>
+                <tr>
+                    <td class="font-weight-bold" width="30%">Nama Peserta :</td>
+                    <td> {{ $biodata->nama_peserta }} </td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold" width="30%">Tempat Lahir :</td>
+                    <td>{{ $biodata->tempat_lahir }}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold" width="30%">Tanggal Lahir</td>
+                    <td>{{ $biodata->tgl_lahir }}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold" width="30%">Alamat Lengkap :</td>
+                    <td>{{ $biodata->alamat }}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold" width="30%">Agama :</td>
+                    <td>{{ $biodata->agama }}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold" width="30%">Jenis Kelamin :</td>
+                    <td>{{ $biodata->jenis_kelamin }}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold" width="30%">No. Telp :</td>
+                    <td>{{ $biodata->no_tlp }}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold" width="30%">Nama Pendidikan :</td>
+                    <td>{{ $biodata->pendidikan->nama_lembaga }}</td>
+                    </tr>
+                <tr>
+                    <td class="font-weight-bold" width="30%">Pendidikan :</td>
+                    <td>{{ $biodata->pendidikan->jenis_lembaga }}</td>
+                    </tr>
+                <tr>
+                    <td class="font-weight-bold" width="30%">Jurusan :</td>
+                    <td>{{ $biodata->jurusan }}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold" width="30%">Awal Masuk PKL :</td>
+                    <td>{{ $biodata->masapkl->awal_masuk }}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold" width="30%">Akhir Masuk PKL:</td>
+                    <td>{{ $biodata->masapkl->akhir_masuk }}</td>
+                </tr>
         </table>
       </div>
       </form>

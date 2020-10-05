@@ -71,15 +71,18 @@ Biodata Peserta PKL
                 <div class="form-group">
                     <label>Nama Pendidikan</label>
                     <div>
-                    @foreach ($lembagapendidikan as $data)
-                    <input style="width:1000px" type="text" name="id_lembagapend" value="{{ $data->nama_lembaga }}">
-                </div></div>
+                    
+                        <input style="width:1000px" type="text" name="nama_lembagapend">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label>Pendidikan</label>
                     <div>
-                    <select style="width:1000px" type="text" name="id_lembagapend">
+                    <select style="width:1000px" type="text" name="jenis_lembagapend">
                     <option>-Pilih-</option>
-                    <option value="{{$data->id_lembagapend}}">{{$data->jenis_lembaga}}</option>
+                    @foreach ($lembagapendidikan as $data)
+                        <option value="{{$data->id_lembagapend}}">{{$data->jenis_lembaga}}</option>
+                    @endforeach
                     </select>
                 </div></div>
                 <div class="form-group">
@@ -102,10 +105,9 @@ Biodata Peserta PKL
                     <div>
                     <input type="file" name="foto_peserta" id="">
                 </div></div>
-                    @endforeach
                 </select>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                   </div>
                 </form>
             </tbody>

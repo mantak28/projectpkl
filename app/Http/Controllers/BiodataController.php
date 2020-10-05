@@ -40,7 +40,7 @@ class BiodataController extends Controller
     {
         $lembagapendidikan=LembagaPendidikan::all();
         return view('biodata.create',compact('lembagapendidikan'));
-        return view('biodata.pendidikan',compact('lembagapendidikan'));
+        //return view('biodata.pendidikan',compact('lembagapendidikan'));
     }
 
     /**
@@ -60,18 +60,24 @@ class BiodataController extends Controller
          $biodata->jenis_kelamin = $request->jenis_kelamin;
         $biodata->no_tlp = $request->no_tlp;
         $biodata->jurusan = $request->jurusan;
-        $biodata->id_lembagapend = $request->id_lembagapend;
+        $biodata->id_lembagapend = $request->jenis_lembagapend;
         $file = $request->file('foto_peserta');
         $ext =  $request->file('foto_peserta')->getClientOriginalExtension();
         $newName = rand(100000,1001238912).".".$ext;
         $file->move('uploads/foto',$newName);
         $biodata->foto_peserta = $newName;
         $biodata->save();
+
         $masapkl= new Masapkl;
         $masapkl->awal_masuk=$request->awal_masuk;
         $masapkl->akhir_masuk=$request->akhir_masuk;
-        $masapkl->id_peserta=$biodata->id;
+        $masapkl->id_peserta=$biodata->id_peserta;
         $masapkl->save();
+
+        $lembaga= new LembagaPendidikan;
+        $lembaga->nama_lembaga=$request->nama_lembagapend;
+        $lembaga->jenis_lembaga=$request->jenis_lembagapend;
+        $lembaga->save();
         return redirect('/biodata');
 
     }
@@ -133,7 +139,6 @@ class BiodataController extends Controller
         $masapkl->akhir_masuk=$request->akhir_masuk;
         $masapkl->save();
         return redirect('/biodata');
-
     }
 
     /**

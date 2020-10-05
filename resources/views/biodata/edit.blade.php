@@ -93,6 +93,7 @@ Edit Biodata Peserta PKL
                     <option>-Pilih-</option>
                     @foreach ($pendidikan as $data)
                     <option selected value="{{$data->id_lembagapend}}">{{$data->jenis_lembaga}}</option>
+                    @endforeach
                     </select>
                 </div></div>
                 <div class="form-group">
@@ -116,10 +117,10 @@ Edit Biodata Peserta PKL
                     <input type="file" name="foto_peserta" value="{{asset('uploads/foto/'.$biodata->foto_peserta)}}" id="">
                 <p class="text-dager">{{$errors->first('update')}}</p>
                 </div></div>
-                    @endforeach
+                    
                 </select>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                   </div>
                 </form>
             </tbody>
