@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Biodata;
-use App\LembagaPendidikan;
+use App\Instansi;
 use App\Masapkl;
 use Illuminate\Support\Facades\file;
 
@@ -26,8 +26,9 @@ class BiodataController extends Controller
      */
     public function index()
     {
-        $biodata=Biodata::leftjoin('lembagapendidikans','biodatas.id_lembagapend', '=', 'lembagapendidikans.id_lembagapend')->leftjoin('masapkls','biodatas.id_peserta','=','masapkls.id_peserta')->get();
-        // return dd($biodata);
+        
+        $biodata=Biodata::leftjoin('instansis','biodatas.id_instansi', '=', 'instansis.id_instansi')->leftjoin('masapkls','biodatas.id_peserta','=','masapkls.id_peserta')->get();
+        // return response()->json($biodata);
         return view('biodata.home',compact('biodata'));
     }
 
@@ -38,8 +39,8 @@ class BiodataController extends Controller
      */
     public function create()
     {
-        $lembagapendidikan=LembagaPendidikan::all();
-        return view('biodata.create',compact('lembagapendidikan'));
+        $instansi=Instansi::all();
+        return view('biodata.create',compact('instansi'));
         //return view('biodata.pendidikan',compact('lembagapendidikan'));
     }
 
@@ -51,35 +52,38 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
+        // $this->validate($request, [
+		// 	'file' => 'required|file|image|mimes:jpeg,jpg|max:2048',
+        // ]);
+        $request->validate([
+            'fotopeserta' => 'required|mimes:jpeg,png,jpg|max:2048',
+        ]);
+        $search = $request->search;
         $biodata = new biodata;
-        $biodata->nama_peserta = $request->nama_peserta;
-        $biodata->tempat_lahir = $request->tempat_lahir;
-        $biodata->tgl_lahir = $request->tgl_lahir;
-        $biodata->alamat = $request->alamat;
-        $biodata->agama = $request->agama;
-         $biodata->jenis_kelamin = $request->jenis_kelamin;
-        $biodata->no_tlp = $request->no_tlp;
-        $biodata->jurusan = $request->jurusan;
-        $biodata->id_lembagapend = $request->jenis_lembagapend;
-        $file = $request->file('foto_peserta');
-        $ext =  $request->file('foto_peserta')->getClientOriginalExtension();
+        $biodata->nama_peserta = $request->namapeserta;
+        $biodata->tempat_lahir = $request->tempatlahir;
+        $biodata->tgl_lahir = $request->tgllahir;
+        $biodata->alamat = $request->almt;
+        $biodata->agama = $request->txtagama;
+        $biodata->jenis_kelamin = $request->jk;
+        $biodata->no_tlp = $request->tlp;
+        $biodata->jurusan = $request->txtjurusan;
+        $biodata->id_instansi = $request->namainstansi;
+        $file = $request->file('fotopeserta');
+        $ext =  $request->file('fotopeserta')->getClientOriginalExtension();
         $newName = rand(100000,1001238912).".".$ext;
         $file->move('uploads/foto',$newName);
         $biodata->foto_peserta = $newName;
         $biodata->save();
 
         $masapkl= new Masapkl;
-        $masapkl->awal_masuk=$request->awal_masuk;
-        $masapkl->akhir_masuk=$request->akhir_masuk;
+        $masapkl->awal_masuk=$request->awalmasuk;
+        $masapkl->akhir_masuk=$request->akhirmasuk;
+        $masapkl->status=$request->txtstatus;
         $masapkl->id_peserta=$biodata->id_peserta;
         $masapkl->save();
-
-        $lembaga= new LembagaPendidikan;
-        $lembaga->nama_lembaga=$request->nama_lembagapend;
-        $lembaga->jenis_lembaga=$request->jenis_lembagapend;
-        $lembaga->save();
         return redirect('/biodata');
-
+        
     }
 
     /**
@@ -103,8 +107,8 @@ class BiodataController extends Controller
     public function edit($id)
     {
         $biodata=Biodata::find($id);
-        $pendidikan=LembagaPendidikan::all();
-      return view('biodata.edit',compact('biodata','pendidikan'));
+        $instansi=Instansi::all();
+      return view('biodata.edit',compact('biodata','instansi'));
     }
 
     /**
@@ -126,7 +130,7 @@ class BiodataController extends Controller
          $biodata->jenis_kelamin = $request->jenis_kelamin;
         $biodata->no_tlp = $request->no_tlp;
         $biodata->jurusan = $request->jurusan;
-        $biodata->id_lembagapend = $request->id_lembagapend;
+        $biodata->id_instansi = $request->id_instansi;
         $file = $request->file('foto_peserta');
         $ext =  $request->file('foto_peserta')->getClientOriginalExtension();
         $newName = rand(100000,1001238912).".".$ext;

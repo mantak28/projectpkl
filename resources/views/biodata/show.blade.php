@@ -10,7 +10,7 @@ Biodata Peserta PKL
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
       <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item active">Buat Biodata</li>
+      <li class="breadcrumb-item active">Lihat Biodata Peserta</li>
     </ol>
   </div><!-- /.col -->
     
@@ -74,14 +74,9 @@ Biodata Peserta PKL
                     <td>{{ $biodata->no_tlp }}</td>
                 </tr>
                 <tr>
-                    <td class="font-weight-bold" width="30%">Nama Pendidikan :</td>
-                    <td>{{ $biodata->pendidikan->nama_lembaga }}</td>
+                    <td class="font-weight-bold" width="30%">Nama Instansi :</td>
+                    <td>{{ $biodata->instansi->nama_instansi }}</td>
                     </tr>
-                <tr>
-                    <td class="font-weight-bold" width="30%">Pendidikan :</td>
-                    <td>{{ $biodata->pendidikan->jenis_lembaga }}</td>
-                    </tr>
-                <tr>
                     <td class="font-weight-bold" width="30%">Jurusan :</td>
                     <td>{{ $biodata->jurusan }}</td>
                 </tr>

@@ -21,43 +21,61 @@ Biodata Peserta PKL
 <div class="card card-primary">
     <div class="card-header">
       <h3 class="card-title">Form Peserta</h3>
+
     </div>
       <!-- /.card-header -->
+      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
       <form role="form" enctype="multipart/form-data" action="{{route('biodata.store')}}" method="POST">
-      <div class="card-body">
+        @csrf
+        <div class="card-body">
         <table class="table table-bordered">
           <thead>                  
                 <div class=""></div>
-                @csrf
+                
                 <div class="form-group">
                     <label>Nama Peserta</label>
                     <div>
-                    <input style="width:1000px" type="text" name="nama_peserta" value="{{old('nama_peserta')}}">
+                    <input style="width:1000px" type="text" name="namapeserta" value="{{old('namapeserta')}}" required>
                 </div></div>
                 <div class="form-group">
                     <label>Tempat Lahir</label>
                     <div>
-                    <input style="width:1000px" type="text" name="tempat_lahir" value="{{old('tempat_lahir')}}>
+                    <input style="width:1000px" type="text" name="tempatlahir" value="{{old('tempatlahir')}}" required>
                 </div></div>
                 <div class="form-group">
                     <label>Tanggal Lahir</label>
                     <div>
-                    <input style="width:1000px" type="date" name="tgl_lahir" value="{{old('tgl_lahir')}}>
+                    <input style="width:1000px" type="date" name="tgllahir" value="{{old('tgllahir')}}" required>
                 </div></div>
                 <div class="form-group">
                     <label>Alamat Lengkap</label>
-                    <div>
-                    <input style="width:1000px" type="text" name="alamat" value="{{old('alamat')}}>
+                      <div>
+                    <input style="width:1000px" type="text" name="almt" value="{{old('almt')}}" required>
                 </div></div>
                 <div class="form-group">
                     <label>Agama</label>
                     <div>
-                    <input style="width:1000px" type="text" name="agama" value="{{old('agama')}}>
+                        <select style="width:1000px" type="text" name="txtagama" value="{{old('txtagama')}}" required>
+                        <option>-Pilih-</option>
+                        <option>Islam</option>
+                        <option>Kristen</option>
+                        <option>Protestan</option>
+                        <option>Hindu</option>
+                        <option>Budha</option>
+                        </select>
                 </div></div>
                 <div class="form-group">
                     <label>Jenis Kelamin</label>
                     <div>
-                    <select style="width:1000px" type="text" name="jenis_kelamin">
+                    <select style="width:1000px" type="text" name="jk" required>
                         <option>-Pilih-</option>
                         <option>Laki-Laki</option>
                         <option>Perempuan</option>
@@ -66,44 +84,47 @@ Biodata Peserta PKL
                 <div class="form-group">
                     <label>No. Telp</label>
                     <div>
-                    <input style="width:1000px" type="text" name="no_tlp" value="{{old('no_tlp')}}>
+                    <input style="width:1000px" type="text" name="tlp" value="{{old('tlp')}}" required>
                 </div></div>
                 <div class="form-group">
-                    <label>Nama Pendidikan</label>
+                    <label>Nama Instansi</label>
                     <div>
-                    
-                        <input style="width:1000px" type="text" name="nama_lembagapend" value="{{old('nama_lembagapend')}}>
+                        <select style="width:1000px" type="text" name="namainstansi" required>
+                            <option>-Pilih-</option>
+                            @foreach ($instansi as $data)
+                                <option value="{{$data->id_instansi}}">{{$data->nama_instansi}}</option>
+                            @endforeach
+                            </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Pendidikan</label>
-                    <div>
-                    <select style="width:1000px" type="text" name="jenis_lembagapend">
-                    <option>-Pilih-</option>
-                    @foreach ($lembagapendidikan as $data)
-                        <option ="{{$data->id_lembagapend}}">{{$data->jenis_lembaga}}</option>
-                    @endforeach
-                    </select>
-                </div></div>
-                <div class="form-group">
                     <label>Jurusan</label>
                     <div>
-                    <input style="width:1000px" type="text" name="jurusan" value="{{old('jurusan')}}>
+                    <input style="width:1000px" type="text" name="txtjurusan" value="{{old('txtjurusan')}}" required>
                 </div></div>
                 <div class="form-group">
                     <label>Awal Masuk PKL</label>
                     <div>
-                    <input style="width:1000px" type="date" name="awal_masuk" value="{{old('awal_masuk')}}>
+                    <input style="width:1000px" type="date" name="awalmasuk" value="{{old('awalmasuk')}}" required>
                 </div></div>
                 <div class="form-group">
                     <label>Akhir Masuk PKL</label>
                     <div>
-                    <input style="width:1000px" type="date" name="akhir_masuk" value="{{old('akhir_masuk')}}>
+                    <input style="width:1000px" type="date" name="akhirmasuk" value="{{old('akhirmasuk')}}" required>
+                </div></div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <div>
+                        <select style="width:1000px" type="text" name="txtstatus" value="{{old('txtstatus')}}" required>
+                        <option>-Pilih-</option>
+                        <option>Aktif</option>
+                        <option>Tidak Aktif</option>
+                        </select>
                 </div></div>
                 <div class="form-group">
                     <label>Upload Foto Diri</label>
                     <div>
-                    <input type="file" name="foto_peserta" value="{{old('foto_peserta')}}>
+                    <input type="file" name="fotopeserta">
                 </div></div>
                 </select>
                 <div class="card-footer">

@@ -10,7 +10,7 @@ Dashboard Peserta PKL
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
       <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item active">Biodata</li>
+      <li class="breadcrumb-item active">Instansi Pendidikan</li>
     </ol>
   </div><!-- /.col -->
     
@@ -22,13 +22,13 @@ Dashboard Peserta PKL
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Tabel Biodata</h3>
+        <h3 class="card-title">Tabel Instansi Pendidikan</h3>
       <!-- SEARCH FORM -->
       <form class="form-inline ml-3 float-sm-right">
         <div class="input-group input-group-sm">
-          <input class="form-control form-control-navbar-" type="search" placeholder="Search" aria-label="Search" value="{{ old('search') }}">
+          <input class="form-control form-control-navbar-" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
-            <button class="btn btn-navbar" type="submit" value="search">
+            <button class="btn btn-navbar" type="submit">
               <i class="fas fa-search"></i>
             </button>
           </div>
@@ -42,31 +42,29 @@ Dashboard Peserta PKL
           <thead>                  
             <tr>
               <th>No</th>
-              <th>Nama Peserta</th>
               <th>Nama Instansi</th>
-              <th>Jenis Kelamin</th>
-              <th>Alamat</th>
-              <th>Waktu PKL</th>
+              <th>Alamat Instansi</th>
+              <th>No. Telp</th>
+              <th>Email</th>
               <th>Aksi</th>
             </tr>
           </thead>
             <tbody>
-              @foreach ($biodata as $data)
+              @foreach ($instansi as $data)
               <tr>
-              <td>{{$data->id_peserta}}</td>
-              <td>{{$data->nama_peserta}}</td>
+              <td>{{$data->id_instansi}}</td>
               <td>{{$data->nama_instansi}}</td>
-              <td>{{$data->jenis_kelamin}}</td>
-              <td>{{$data->alamat}}</td>
-              <td>{{$data->awal_masuk}} s/d {{$data->akhir_masuk}}</td>
+              <td>{{$data->alamat_instansi}}</td>
+              <td>{{$data->no_tlpn_instansi}}</td>
+              <td>{{$data->email_instansi}}</td>
               <td>
                 <!-- view btn -->
                 
-              <a href="{{url('biodata/'.$data->id_peserta)}}" class="btn btn-primary btn-circle btn-sm view_data m-1" title="Lihat Detail">
+              <a href="{{url('pendidikan/'.$data->id_instansi)}}" class="btn btn-primary btn-circle btn-sm view_data m-1" title="Lihat Detail">
                 <i class="fas fa-eye"></i>
               </a>
               <!-- edit btn -->
-              <a href="{{url('biodata/'.$data->id_peserta.'/edit')}}" class="btn btn-success btn-circle btn-sm m-1 edit_data" title="Edit Data Pengguna"
+              <a href="{{url('pendidikan/'.$data->id_instansi.'/edit')}}" class="btn btn-success btn-circle btn-sm m-1 edit_data" title="Edit Data Pengguna"
                 name="edit" value="edit" id="edit">
                 <i class="fas fa-pen"></i>
             </a>

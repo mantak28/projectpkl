@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/biodata', 'BiodataController');
+Route::resource('/pendidikan', 'PendidikanController');
 
 Auth::routes();
 

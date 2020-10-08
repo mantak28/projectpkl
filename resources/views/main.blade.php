@@ -133,11 +133,17 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{url('/biodata/pendidikan')}}" class="nav-link">
+                  <a href="{{url('/pendidikan')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Buat Lembaga Pendidikan</p>
+                      <p>Instansi Pendidikan</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="{{url('/pendidikan/create')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Buat Instansi Pendidikan</p>
+                      </a>
+                    </li>
               </ul>
             </li>
             <li class="nav-item">
