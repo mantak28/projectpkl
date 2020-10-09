@@ -69,7 +69,7 @@ Instansi Pendidikan Peserta PKL
 
                 </select>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                   </div>
                 </form>
             </tbody>

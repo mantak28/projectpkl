@@ -15,7 +15,7 @@ class PendidikanController extends Controller
      */
     public function index()
     {
-        $instansi=Instansi::all();
+        $instansi=Instansi::leftjoin('lembagas','instansis.id_lembaga','=', 'lembagas.id_lembaga')->get();
         return view('pendidikan.pendidikan',compact('instansi'));
     }
 
@@ -82,7 +82,7 @@ class PendidikanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $instansi = new instansi;
+        $instansi=Instansi::find($id);
         $instansi->nama_instansi = $request->namainstansi;
         $instansi->alamat_instansi = $request->alamatinstansi;
         $instansi->no_tlpn_instansi = $request->tlpninstansi;

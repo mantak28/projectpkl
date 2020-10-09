@@ -22,9 +22,6 @@ Edit Instansi Pendidikan Peserta PKL
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{route('pendidikan.index')}}"> Kembali</a>
-        </div>
     </div>
 </div>
 <br>

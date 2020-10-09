@@ -48,7 +48,7 @@ Instansi Pendidikan Peserta PKL
                 </tr>
                 <tr>
                     <td class="font-weight-bold" width="30%">Lembaga Pendidikan :</td>
-                    <td>{{ $instansi->nama_lembaga }}</td>
+                    <td>{{ $instansi->lembaga->nama_lembaga }}</td>
                 </tr>
                 <tr>
                     <td class="font-weight-bold" width="30%">Alamat Instansi :</td>

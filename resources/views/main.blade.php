@@ -147,16 +147,16 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link">
+            <a href="{{url('/masapkl')}}" class="nav-link">
                 <p>
-                  Absensi
+                  Masa PKL
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link">
+            <a href="{{url('/absensi')}}" class="nav-link">
                 <p>
-                  Masa PKl
+                  Absensi
                 </p>
               </a>
             </li>

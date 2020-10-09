@@ -122,17 +122,17 @@ class BiodataController extends Controller
     {
         
         $biodata=Biodata::find($id);
-        $biodata->nama_peserta = $request->nama_peserta;
-        $biodata->tempat_lahir = $request->tempat_lahir;
-        $biodata->tgl_lahir = $request->tgl_lahir;
-        $biodata->alamat = $request->alamat;
-        $biodata->agama = $request->agama;
-         $biodata->jenis_kelamin = $request->jenis_kelamin;
-        $biodata->no_tlp = $request->no_tlp;
-        $biodata->jurusan = $request->jurusan;
+        $biodata->nama_peserta = $request->namapeserta;
+        $biodata->tempat_lahir = $request->tempatlahir;
+        $biodata->tgl_lahir = $request->tgllahir;
+        $biodata->alamat = $request->almt;
+        $biodata->agama = $request->txtagama;
+        $biodata->jenis_kelamin = $request->jk;
+        $biodata->no_tlp = $request->tlp;
+        $biodata->jurusan = $request->txtjurusan;
         $biodata->id_instansi = $request->id_instansi;
-        $file = $request->file('foto_peserta');
-        $ext =  $request->file('foto_peserta')->getClientOriginalExtension();
+        $file = $request->file('fotopeserta');
+        $ext =  $request->file('fotopeserta')->getClientOriginalExtension();
         $newName = rand(100000,1001238912).".".$ext;
         $file->move('uploads/foto',$newName);
         $biodata->foto_peserta = $newName;

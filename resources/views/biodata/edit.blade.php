@@ -22,9 +22,6 @@ Edit Biodata Peserta PKL
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{route('biodata.index')}}"> Kembali</a>
-        </div>
     </div>
 </div>
 <br>
@@ -76,7 +73,7 @@ Edit Biodata Peserta PKL
                 <div class="form-group">
                     <label>Jenis Kelamin</label>
                 <div class="radio">
-                    <select style="width:1000px" type="radio" name="jenis_kelamin" value="{{ $biodata->jenis_kelamin }}">
+                    <select style="width:1000px" type="radio" name="jk" value="{{ $biodata->jenis_kelamin }}">
                         <option>-Pilih-</option>
                         <option selected>Laki-Laki</option>
                         <option selected>Perempuan</option>
@@ -86,7 +83,7 @@ Edit Biodata Peserta PKL
                 <div class="form-group">
                     <label>No. Telp</label>
                 <div>
-                    <input style="width:1000px" type="text" name="no_tlp" value="{{ $biodata->no_tlp }}" id="">
+                    <input style="width:1000px" type="text" name="tlp" value="{{ $biodata->no_tlp }}" id="">
                 </div></div>
                 <div class="form-group">
                     <label>Nama Instansi</label>
@@ -101,7 +98,7 @@ Edit Biodata Peserta PKL
                 <div class="form-group">
                     <label>Jurusan</label>
                     <div>
-                    <input style="width:1000px" type="text" name="jurusan" value="{{ $biodata->jurusan }}" id="">
+                    <input style="width:1000px" type="text" name="txtjurusan" value="{{ $biodata->jurusan }}" id="">
                 </div></div>
                 <div class="form-group">
                     <label>Awal Masuk PKL</label>
@@ -125,7 +122,7 @@ Edit Biodata Peserta PKL
                 <div class="form-group">
                     <label>Upload Foto Diri</label>
                     <div>
-                    <input type="file" name="foto_peserta" value="{{asset('uploads/foto/'.$biodata->foto_peserta)}}" id="">
+                    <input type="file" name="fotopeserta" value="{{asset('uploads/foto/'.$biodata->foto_peserta)}}" id="">
                 <p class="text-dager">{{$errors->first('update')}}</p>
                 </div></div>
                     
