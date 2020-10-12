@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
+    <title>Sign In</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="{{ asset('colorlib/fonts/material-icon/css/material-design-iconic-font.min.css')}}">
@@ -16,6 +15,8 @@
 <body>
 
     <div class="main">
+
+        <!-- Register  Form -->
     <section class="sign-in">
         <div class="container">
             <div class="signin-content">
@@ -75,27 +76,27 @@
                         </div>
 
                         <div class="form-group from-button">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-
-                            <div class="card-footer">
+                            <div class="row">
+                        
+                        
                                 <button type="submit" class="btn btn-primary" onclick="window.history.go(-1); return false;">
                                     {{ __('Kembali') }}
                                 </button>
-                              </div>
-                           
+                                
+                                <button style="float: right" type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    </div>
+    </div>                 
+
     <!-- JS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
