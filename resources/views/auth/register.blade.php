@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-@extends('layouts.app')
-=======
->>>>>>> 45c54ab96e3048c2b5ee628989258a2cce0f3746
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
