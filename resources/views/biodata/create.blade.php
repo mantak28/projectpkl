@@ -63,15 +63,14 @@ Biodata Peserta PKL
                 <div class="form-group">
                     <label>Agama</label>
                     <div>
-                        <select style="width:1000px" type="text" name="txtagama" value="{{old('txtagama')}}" required>
-                        <option>-Pilih-</option>
-                        <option>Islam</option>
-                        <option>Kristen</option>
-                        <option>Protestan</option>
-                        <option>Hindu</option>
-                        <option>Budha</option>
-                        </select>
-                </div></div>
+                        <select style="width:1000px" type="text" name="namaagama" required>
+                            <option>-Pilih-</option>
+                            @foreach ($agama as $datum)
+                                <option value="{{$datum->id_agama}}">{{$datum->nama_agama}}</option>
+                            @endforeach
+                            </select>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label>Jenis Kelamin</label>
                     <div>
@@ -119,6 +118,7 @@ Biodata Peserta PKL
                         <option>-Pilih-</option>
                         <option>Aktif</option>
                         <option>Tidak Aktif</option>
+                        <option>Belum Aktif</option>
                         </select>
                 </div></div>
                 <div class="form-group">

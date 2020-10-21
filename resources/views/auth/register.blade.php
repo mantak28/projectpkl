@@ -32,7 +32,7 @@
                         <div class="form-group row">
                             <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <div class="col-md-6">
-                                <input placeholder="nama" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input placeholder="nama" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
                         <div class="form-group row">
                             <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <div class="col-md-6">
-                                <input placeholder="E-Mail" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input placeholder="E-Mail" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

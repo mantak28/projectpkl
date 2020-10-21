@@ -69,8 +69,8 @@ class PendidikanController extends Controller
     public function edit($id)
     {
         $instansi=Instansi::find($id);
-        // $lembaga=Lembaga::all();
-        return view('pendidikan.edit',compact('instansi'));
+        $lembaga=Lembaga::all();
+        return view('pendidikan.edit',compact('instansi','lembaga'));
     }
 
     /**
@@ -87,7 +87,7 @@ class PendidikanController extends Controller
         $instansi->alamat_instansi = $request->alamatinstansi;
         $instansi->no_tlpn_instansi = $request->tlpninstansi;
         $instansi->email_instansi = $request->emailinstansi;
-        $instansi->id_lembaga = $request->namalembaga;
+        $instansi->id_lembaga = $request->nama_lembaga;
         $instansi->save();
 
         // $lembaga=Lembaga::where('id_instansi','=', $id)->first();

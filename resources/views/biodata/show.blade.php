@@ -63,7 +63,7 @@ Biodata Peserta PKL
                 </tr>
                 <tr>
                     <td class="font-weight-bold" width="30%">Agama :</td>
-                    <td>{{ $biodata->agama }}</td>
+                    <td>{{ $biodata->agama->nama_agama }}</td>
                 </tr>
                 <tr>
                     <td class="font-weight-bold" width="30%">Jenis Kelamin :</td>

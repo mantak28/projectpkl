@@ -17,9 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::resource('/biodata', 'BiodataController');
 Route::resource('/pendidikan', 'PendidikanController');
-
+Route::resource('/masapkl', 'MasapklController');
+Route::post('/masapkl/filter','MasapklController@filter')->name('masapkl.filter');
+Route::resource('/absensi', 'AbsensiController');
+Route::get('/masapkl/{id}/edit','MasapklController@edit');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -59,24 +59,22 @@ Edit Biodata Peserta PKL
                     <input style="width:1000px" type="text" name="almt" value="{{ $biodata->alamat }}" id="">
                 </div></div>
                 <div class="form-group">
-                    <label>Agama</label>
+                <label>Agama</label>
                     <div>
-                        <select style="width:1000px" type="text" name="txtagama" value="{{ $biodata->agama }}" id="">
-                        <option>-Pilih-</option>
-                        <option>Islam</option>
-                        <option>Kristen</option>
-                        <option>Protestan</option>
-                        <option>Hindu</option>
-                        <option>Budha</option>
-                    </select>
+                        <select style="width:1000px" type="text" name="namaagama">
+                            <option>-Pilih-</option>
+                            @foreach ($agama as $data)
+                            <option value="{{$data->id_agama}}"{{$data->id_agama == $biodata->id_agama ? 'selected':''}}>{{$data->nama_agama}}</option>
+                            @endforeach
+                          </select>
                 </div></div>
                 <div class="form-group">
                     <label>Jenis Kelamin</label>
                 <div class="radio">
                     <select style="width:1000px" type="radio" name="jk" value="{{ $biodata->jenis_kelamin }}">
                         <option>-Pilih-</option>
-                        <option selected>Laki-Laki</option>
-                        <option selected>Perempuan</option>
+                        <option value='Laki-Laki' selected>Laki-Laki</option>
+                        <option value='Perempuan' selected>Perempuan</option>
                         </select>
                 </div>
                 </div>
@@ -91,7 +89,7 @@ Edit Biodata Peserta PKL
                         <select style="width:1000px" type="text" name="id_instansi" value="{{ $biodata->instansi->nama_instansi }}">
                             <option>-Pilih-</option>
                             @foreach ($instansi as $data)
-                            <option selected value="{{$data->id_instansi}}">{{$data->nama_instansi}}</option>
+                            <option selected value="{{$data->id_instansi}}" <?php if($data->id_instansi==$biodata->id_instansi) { echo "selected"; } ?>>{{$data->nama_instansi}}</option>
                             @endforeach
                             </select>
                 </div></div>
@@ -115,8 +113,9 @@ Edit Biodata Peserta PKL
                     <div>
                         <select style="width:1000px" type="text" name="txtstatus" value="{{ $biodata->masapkl->status }}" id="">
                         <option>-Pilih-</option>
-                        <option>Aktif</option>
-                        <option>Tidak Aktif</option>
+                        <option value='Aktif' selected>Aktif</option>
+                        <option value='Tidak Aktif' selected>Tidak Aktif</option>
+                        <option value='Belum Aktif' selected>Belum Aktif</option>
                         </select>
                 </div></div>
                 <div class="form-group">

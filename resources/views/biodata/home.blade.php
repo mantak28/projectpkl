@@ -46,19 +46,22 @@ Dashboard Peserta PKL
               <th>Nama Instansi</th>
               <th>Jenis Kelamin</th>
               <th>Alamat</th>
-              <th>Waktu PKL</th>
+              <th>Awal Masuk PKL</th>
+              <th>Akhir Masuk PKL</th>
               <th>Aksi</th>
             </tr>
           </thead>
             <tbody>
+              <?php $x = 1; ?>
               @foreach ($biodata as $data)
               <tr>
-              <td>{{$data->id_peserta}}</td>
+              <td>{{$x}}</td>
               <td>{{$data->nama_peserta}}</td>
               <td>{{$data->nama_instansi}}</td>
               <td>{{$data->jenis_kelamin}}</td>
               <td>{{$data->alamat}}</td>
-              <td>{{$data->awal_masuk}} s/d {{$data->akhir_masuk}}</td>
+              <td>{{$data->awal_masuk}}</td>
+              <td>{{$data->akhir_masuk}}</td>
               <td>
                 <!-- view btn -->
                 
@@ -72,6 +75,7 @@ Dashboard Peserta PKL
             </a>
               </td>
               </tr>
+              <?php $x = $x + 1; ?>
               @endforeach            
             </tbody>
         </table>

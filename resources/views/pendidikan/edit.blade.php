@@ -45,7 +45,12 @@ Edit Instansi Pendidikan Peserta PKL
                 <div class="form-group">
                     <label>Lembaga Pendidikan</label>
                     <div >
-                    <input style="width:1000px" type="text" name="namalembaga" value="{{ $instansi->nama_lembaga }}">
+                      <select style="width:1000px" type="text" name="nama_lembaga" value="{{ $instansi->lembaga->nama_lembaga }}">
+                        <option>-Pilih-</option>
+                        @foreach ($lembaga as $data)
+                        <option selected value="{{$data->id_lembaga}}" <?php if($data->id_lembaga==$instansi->id_lembaga) { echo "selected"; } ?>>{{$data->nama_lembaga}}</option>
+                        @endforeach
+                      </select>
                 </div>
                 </div>
                 <div class="form-group">

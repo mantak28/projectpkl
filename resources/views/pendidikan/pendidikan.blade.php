@@ -50,9 +50,10 @@ Dashboard Peserta PKL
             </tr>
           </thead>
             <tbody>
+              <?php $x = 1; ?>
               @foreach ($instansi as $data)
               <tr>
-              <td>{{$data->id_instansi}}</td>
+              <td>{{$x}}</td>
               <td>{{$data->nama_instansi}}</td>
               <td>{{$data->alamat_instansi}}</td>
               <td>{{$data->no_tlpn_instansi}}</td>
@@ -70,7 +71,8 @@ Dashboard Peserta PKL
             </a>
               </td>
               </tr>
-              @endforeach            
+              @endforeach  
+              <?php $x = $x + 1; ?>          
             </tbody>
         </table>
       </div>
